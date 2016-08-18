@@ -132,7 +132,7 @@ var blur = (function() {
   
 	//This function sets the view 
 
-	var baseLink = '';
+	var baseLink = 'blur/';
 	var v_timeO,v_timeO2,v_timeO3;
 
 	setView = function(link,viewName,ctrl,animate){
@@ -144,6 +144,7 @@ var blur = (function() {
 			clearTimeout(v_timeO);
 			clearTimeout(v_timeO2);
 			clearTimeout(v_timeO3);
+			console.log(baseLink + link + '.html');
 			v_timeO = setTimeout(function(){ $('#'+viewName).load(baseLink + link + '.html');},animate.speed);// should fix it by callback functions
 			v_timeO2 = setTimeout(function(){  ctrl();  Kernal.setDomFunction();},animate.speed+70);// should fix it by callback functions
 			v_timeO3 = setTimeout(function(){ $('#'+viewName).fadeIn(animate.speed); },animate.speed+100);// should fix it by callback functions
