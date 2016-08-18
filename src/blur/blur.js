@@ -124,6 +124,11 @@ var blur = (function() {
     function blur(Data) {
         initData = Data;
 		routes = initData.route;
+		if(initData.baseLink == undefined){ 
+			blur.baseLink = '/';
+		}else{
+			blur.baseLink = initData.baseLink;
+		}
 
         console.log('blur Initialized'); 
         if(Data.intiAnim == undefined)Data.intiAnim = {}
@@ -132,7 +137,6 @@ var blur = (function() {
   
 	//This function sets the view 
 
-	var baseLink = 'blur/';
 	var v_timeO,v_timeO2,v_timeO3;
 
 	setView = function(link,viewName,ctrl,animate){
@@ -144,12 +148,12 @@ var blur = (function() {
 			clearTimeout(v_timeO);
 			clearTimeout(v_timeO2);
 			clearTimeout(v_timeO3);
-			console.log(baseLink + link + '.html');
-			v_timeO = setTimeout(function(){ $('#'+viewName).load(baseLink + link + '.html');},animate.speed);// should fix it by callback functions
+			console.log(blur.baseLink + link + '.html');
+			v_timeO = setTimeout(function(){ $('#'+viewName).load(blur.baseLink + link + '.html');},animate.speed);// should fix it by callback functions
 			v_timeO2 = setTimeout(function(){  ctrl();  Kernal.setDomFunction();},animate.speed+70);// should fix it by callback functions
 			v_timeO3 = setTimeout(function(){ $('#'+viewName).fadeIn(animate.speed); },animate.speed+100);// should fix it by callback functions
 		}else{ 
-			$('#'+viewName).load(baseLink + link + '.html').hide(); // should fix it by callback functions
+			$('#'+viewName).load(blur.baseLink + link + '.html').hide(); // should fix it by callback functions
 			setTimeout(function(){ ctrl();   Kernal.setDomFunction();},70); // should fix it by callback functions
 			setTimeout(function(){$('#'+viewName).show();},100); // should fix it by callback functions
 		}
@@ -176,10 +180,10 @@ var blur = (function() {
 
 			if(changeState){
 				setView(el.obj.template, el.obj.view,controllers[el.obj.controller], data.animate); 
-				window.history.pushState("object or string", "Title", "/#/" + el.obj.url);   
+				window.history.pushState("object or string", "Title", blur.baseLink + "#/" + el.obj.url);   
 				current = el.obj;
 			}else{
-				window.history.pushState("object or string", "Title", "/#/" + routes[0].url);
+				window.history.pushState("object or string", "Title", blur.baseLink + "#/" + routes[0].url);
 				setView(routes[0].template,routes[0].view, controllers[routes[0].controller], data.animate);  
 				current = routes[0];
 			} 
