@@ -199,7 +199,7 @@ var blur = (function() {
 		var cu_url = window.location.href.split("/");
 		var cu_url_len = cu_url.length;
 		var relUrl = ''; 
-		var relCouter = 4; // initialized relCouter as 4 to skip absolute url
+		var relCouter = 5; // initialized relCouter as 4 to skip absolute url
 		var i = relCouter;
 		for(i; i < cu_url_len; i++ ){
 
