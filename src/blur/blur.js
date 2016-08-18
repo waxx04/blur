@@ -129,7 +129,6 @@ var blur = (function() {
 		}else{
 			blur.baseLink = initData.baseLink;
 		}
-
         console.log('blur Initialized'); 
         if(Data.intiAnim == undefined)Data.intiAnim = {}
 		setRoute({animate:Data.intiAnim});
@@ -143,19 +142,23 @@ var blur = (function() {
 
 		if(viewName == undefined) viewName = initData.defaultView; 
 		if(animate == undefined) animate = {}; 
+		console.log(blur.baseLink + link + '.html');
 		if(animate.type == 'fade'){
 			$('#'+viewName).fadeOut(animate.speed); 
 			clearTimeout(v_timeO);
 			clearTimeout(v_timeO2);
 			clearTimeout(v_timeO3);
-			console.log(blur.baseLink + link + '.html');
-			v_timeO = setTimeout(function(){ $('#'+viewName).load(blur.baseLink + link + '.html');},animate.speed);// should fix it by callback functions
-			v_timeO2 = setTimeout(function(){  ctrl();  Kernal.setDomFunction();},animate.speed+70);// should fix it by callback functions
-			v_timeO3 = setTimeout(function(){ $('#'+viewName).fadeIn(animate.speed); },animate.speed+100);// should fix it by callback functions
+			v_timeO = setTimeout(function(){ $('#'+viewName).load(blur.baseLink + link + '.html',function(){
+				v_timeO2 = setTimeout(function(){  ctrl();  Kernal.setDomFunction();},animate.speed+70);// should fix it by callback functions
+				v_timeO3 = setTimeout(function(){ $('#'+viewName).fadeIn(animate.speed); },animate.speed+100);// should fix it by callback functions 
+			});},animate.speed);// should fix it by callback functions
 		}else{ 
-			$('#'+viewName).load(blur.baseLink + link + '.html').hide(); // should fix it by callback functions
-			setTimeout(function(){ ctrl();   Kernal.setDomFunction();},70); // should fix it by callback functions
-			setTimeout(function(){$('#'+viewName).show();},100); // should fix it by callback functions
+			$('#'+viewName).hide();
+			$('#'+viewName).load(blur.baseLink + link + '.html',function(){
+				setTimeout(function(){ ctrl();   Kernal.setDomFunction();},70); // should fix it by callback functions
+				setTimeout(function(){$('#'+viewName).show();},100); // should fix it by callback functions 
+				console.log('its loaded');
+			}); // should fix it by callback functions
 		}
 	}
 
