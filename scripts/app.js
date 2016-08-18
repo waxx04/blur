@@ -27,7 +27,7 @@ blur({
 		},
 	],
 	defaultView : 'b-view',
-	baseLink : 'blur/',
+	// baseLink : 'blur/',
 	intiAnim:{ 
 		// type:'fade', // comment these two line if you dont want to initialize 
 		// speed:200	// your landing page with a fadeIn animation 
