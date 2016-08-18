@@ -125,7 +125,7 @@ var blur = (function() {
         initData = Data;
 		routes = initData.route;
 		if(initData.baseLink == undefined){ 
-			blur.baseLink = '/';
+			blur.baseLink = '';
 		}else{
 			blur.baseLink = initData.baseLink;
 		}
@@ -180,10 +180,10 @@ var blur = (function() {
 
 			if(changeState){
 				setView(el.obj.template, el.obj.view,controllers[el.obj.controller], data.animate); 
-				window.history.pushState("object or string", "Title", blur.baseLink + "#/" + el.obj.url);   
+				window.history.pushState("object or string", "Title", "/#/" + el.obj.url);   
 				current = el.obj;
 			}else{
-				window.history.pushState("object or string", "Title", blur.baseLink + "#/" + routes[0].url);
+				window.history.pushState("object or string", "Title", "/#/" + routes[0].url);
 				setView(routes[0].template,routes[0].view, controllers[routes[0].controller], data.animate);  
 				current = routes[0];
 			} 
