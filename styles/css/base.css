@@ -1,0 +1,124 @@
+@font-face {
+    font-family: cavdre;
+    src: url(../../fonts/cavdre.ttf); }
+@font-face {
+    font-family: cavdreBold;
+    src: url(../../fonts/cavdre_bold.ttf);  
+} 
+@font-face {
+    font-family: gothicBold; 
+    src: url(../../fonts/MuseoSans_900.otf);  
+} 
+
+body{
+	font-family:Tahoma; 
+	background: #9BEE50;  
+	color:#666;
+    font-family: cavdre;
+}
+
+.header,.navBtn,.b-viewCont,.navPointer,
+.h6,
+.homePage, 
+	.jumboTrone,.jumboTroneFake,.jumboTroneDet
+{
+	display: block;
+	float: left;
+}
+.header{
+	width: 100%;
+	height: 100px;
+	background: #eee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #9BEE50;
+}
+.navBtn{ 
+	height: 100%;
+	line-height: 100px; 
+	text-align: center;
+	padding:0 20px;
+	color: rgba(255,255,255,0.9);
+    font-family: cavdreBold;
+    border-radius: 0 0 10px 10px;
+}
+.navBtn:hover{
+	cursor:pointer;
+	background:rgba(255,255,255,0.1);
+}
+.headNav{
+	position:relative;
+}
+.navPointer{
+	width:0px;
+	height: 6px;
+	border-radius:3px;
+	background:#FFE000;
+	background:rgba(255,255,255,0.3);
+	position: absolute;
+	left:0;
+	bottom:10px;
+
+	transition: 0.5s;
+}
+
+
+.b-viewCont{   
+	width:100%; 
+	margin-top: 100px;
+}
+
+
+
+
+.homePage{
+	width: 100%;
+	background: #9BEE50;  
+	position: relative;
+	overflow: hidden;
+}
+.homePageInner{
+	height:100%;
+	position: relative;
+}
+.jumboTrone,.jumboTroneFake,.jumboTroneDet{
+	width: 100%;
+	font-size: 120px; 
+	position: absolute;
+	top:calc( 50% - 60px + 40px - 100px );
+	text-align: center;
+	color: #fff; 
+	height:120px;
+    font-family: gothicBold; 
+	transition: 1.5s;
+}
+.jumboTroneFake{
+	top:0;
+	color:#CDF6A7;
+	height:100%;
+	overflow: hidden;
+	transition: 1.5s;
+}
+.jumboTroneDet{
+	font-size: 90%;
+	top:60%;
+	color: rgba(255,255,255,0.6);
+    font-family: cavdreBold; 
+	height: auto;
+	line-height: 600%;
+	opacity: 0;
+} 
+
+
+.h6{
+	font-size: 200%;
+	width: 100%;
+	line-height: 200%;
+    font-family: cavdreBold;
+	font-weight: normal;
+	color: #9BEE50;  
+}
+td{
+	padding:5px 10px;
+}
